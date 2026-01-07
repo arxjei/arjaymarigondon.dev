@@ -4,7 +4,6 @@ import UnoCSS from 'unocss/astro';
 
 export default defineConfig({
   site: 'https://arjei.github.io/',
-  base: '/arjaymarigondon.dev/',  
   trailingSlash: 'ignore',
   integrations: [sitemap(), UnoCSS({ injectReset: true })],
   vite: {

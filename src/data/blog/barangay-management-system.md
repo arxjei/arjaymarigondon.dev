@@ -1,26 +1,29 @@
 ---
-title: Blogpost 6
-description: Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, vox nocte sedesque, decimo. Omnia esse, quam sive; conplevit illis indestrictus admovit dedit sub quod protectus, impedit non.
-pubDate: 2023-02-21 00:13
-author: Elian Van Cutsem
+imgUrl: "../../assets/placeholder.webp"
+title: Barangay Management System
+description:
+  Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, vox
+  nocte sedesque, decimo. Omnia esse, quam sive; conplevit illis indestrictus
+  admovit dedit sub quod protectus, impedit non.
 tags:
-  - TypeScript
-  - Astro
-  - Web Development
-imgUrl: '../../assets/astro.jpeg'
+  - PHP
+  - MySQL
+  - Bootstrap V5
+pubDate: 11/09/2022 14:25
+author: "Elian Van Cutsem"
 ---
 
 ## Deorum petiit ignis
 
-Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, *vox
-nocte sedesque*, decimo. Omnia esse, quam sive; conplevit illis indestrictus
+Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, _vox
+nocte sedesque_, decimo. Omnia esse, quam sive; conplevit illis indestrictus
 admovit dedit sub quod protectus, impedit non.
 
 ## Iovis late orbem Perseus sunt
 
 Aras reperire, sui motis correpti coniunx Onetor amore ferire lacertis, petiit.
-Bis pallor et mecum me, igne patruelibus *tendebam*, vultu sterilique terruerat
-*tempore* medium aera **eadem Mittor**.
+Bis pallor et mecum me, igne patruelibus _tendebam_, vultu sterilique terruerat
+_tempore_ medium aera **eadem Mittor**.
 
 - Non turba loca dederunt primordia ineamus Dictys
 - Tanti amat mundus sedula
