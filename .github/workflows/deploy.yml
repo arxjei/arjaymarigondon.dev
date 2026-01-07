@@ -32,6 +32,8 @@ jobs:
         run: pnpm install
 
       - name: Build
+        env:
+          SECRET_GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB_TOKEN }}
         run: pnpm run build
 
       - name: Upload artifact
