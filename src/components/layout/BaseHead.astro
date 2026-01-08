@@ -1,4 +1,5 @@
 ---
+import { github } from "../../lib/github";
 import LocalFont from "../generic/LocalFont.astro";
 import { ViewTransitions } from "astro:transitions";
 
@@ -15,6 +16,9 @@ if (Astro.props.ogImage === undefined) {
 }
 
 const { title, description, ogImage } = Astro.props;
+const userData = await github.getUser();
+
+export const prerender = true;
 ---
 
 <head>
@@ -31,7 +35,7 @@ const { title, description, ogImage } = Astro.props;
 
 	<meta
 		name="title"
-		content={`Arxjei | ${title}`}
+		content={`${userData.name} | ${title}`}
 	/>
 	<meta
 		name="description"
@@ -90,7 +94,7 @@ const { title, description, ogImage } = Astro.props;
 		href="/favicon.svg"
 	/>
 
-	<title>Arxjei | {title}</title>
+	<title>{userData.name} | {title}</title>
 
 	<ViewTransitions />
 

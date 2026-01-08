@@ -1,4 +1,6 @@
 ---
+import { github } from "../../lib/github";
+
 interface Props {
 	pageTitle?: string;
 }
@@ -7,17 +9,20 @@ const navigationItems = [
 	{ name: "Home", url: "/" },
 	{ name: "Blog", url: "/blog/" },
 ];
+const userData = await github.getUser();
 
+export const prerender = true;
 const socialIcons = [
 	{
 		name: "GitHub",
-		url: "https://github.com/eliancodes/brutal",
+		url: `${userData.html_url}`,
 		icon: "i-uil-github",
 	},
 	{
 		name: "Twitter",
-		url: "https://www.twitter.com/eliancodes",
+		url: `https://x.com/${userData.twitter_username}`,
 		icon: "i-uil-twitter",
+		isActive: userData.twitter_username !== null,
 	},
 	{ name: "RSS", url: "/feed.xml", icon: "i-uil-rss" },
 ];
@@ -25,12 +30,15 @@ const socialIcons = [
 const { pageTitle } = Astro.props;
 ---
 
-<header class="border-b-4 border-black flex justify-between p-6 items-center">
+<header
+	class="border-b-4 border-black flex justify-between p-6 items-center bg-yellow-500">
 	{pageTitle && <h1 class="hidden">{pageTitle}</h1>}
 	<a
 		href="/"
 		title="Back to Home">
-		<p class="righteous md:text-5xl">Arxjei</p>
+		<p class="righteous md:text-5xl text-3xl">
+			@{userData.login}
+		</p>
 	</a>
 	<nav class="hidden md:inline-block">
 		<h2 class="hidden">Navigation</h2>
@@ -39,7 +47,7 @@ const { pageTitle } = Astro.props;
 				navigationItems.map((item) => (
 					<li>
 						<a
-							class="text-lg font-medium hover:text-green hover:underline transition-all duration-150 ease-in-out"
+							class="text-lg font-medium hover:text-fuchsia hover:underline hover:font-bold transition-all duration-150 ease-in-out"
 							href={item.url}
 							title={`Go to ${item.name}`}>
 							{item.name}
@@ -48,24 +56,39 @@ const { pageTitle } = Astro.props;
 				))
 			}
 			{
-				socialIcons.map((item) => (
-					<li>
-						<a
-							href={item.url}
-							class="hover:text-green hover:underline transition-all duration-150 ease-in-out"
-							target="_blank"
-							title={`'See @ElianCodes on ${item.name}`}>
-							<div class:list={[item.icon, "w-6 h-6"]} />
-						</a>
-					</li>
-				))
+				socialIcons
+					.filter((item) => item.isActive !== false)
+					.map((item) => (
+						<li>
+							<a
+								href={item.url}
+								class="hover:text-pink hover:underline transition-all duration-150 ease-in-out"
+								target="_blank"
+								title={`'See @${userData.login} on ${item.name}`}>
+								<div class:list={[item.icon, "w-6 h-6"]} />
+							</a>
+						</li>
+					))
 			}
 		</ul>
 	</nav>
 	<nav class="md:hidden flex">
 		<h2 class="hidden">Mobile Navigation</h2>
-		<ul>
-			<li><a href="/blog/">Blog</a></li>
+		<ul class="flex gap-8 poppins">
+			{
+				navigationItems
+					.filter((item) => item.name !== "Home")
+					.map((item) => (
+						<li>
+							<a
+								class="text-lg font-medium hover:text-fuchsia hover:underline hover:font-bold transition-all duration-150 ease-in-out"
+								href={item.url}
+								title={`Go to ${item.name}`}>
+								{item.name}
+							</a>
+						</li>
+					))
+			}
 		</ul>
 	</nav>
 </header>
