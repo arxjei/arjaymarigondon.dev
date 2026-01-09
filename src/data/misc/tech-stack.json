@@ -169,5 +169,12 @@
     "logo": "devicon-insomnia-plain colored",
     "color": "#5849BE",
     "note": "Verify if insomnia exists in devicon - may need to use image URL"
+  },
+  {
+    "id": "alpinejs",
+    "name": "Alpine JS",
+    "url": "https://www.alpinejs.com/",
+    "logo": "devicon-alpinejs-original colored",
+    "color": "#77c1d2"
   }
 ]

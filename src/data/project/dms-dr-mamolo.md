@@ -2,13 +2,13 @@
 imgUrl: "@assets/blogs/dms-dr-mamolo-thumbnail.png"
 title: Dental Management System
 description:
-  Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, vox
-  nocte sedesque, decimo. Omnia esse, quam sive; conplevit illis indestrictus
-  admovit dedit sub quod protectus, impedit non.
+  A web-based platform for managing dental clinic operations, patient
+  appointments, and services.
 tags:
-  - filamentphp
   - laravel
+  - filamentphp
   - livewire
+  - alpinejs
   - tailwindcss
   - mysql
 pubDate: 11/10/2026 08:00
@@ -29,7 +29,7 @@ interface to browse services, manage their accounts, and request assistance.
 
 ### Admin Dashboard
 
-- **Analytics & Reports** - Comprehensive overview of clinic operations
+- **Analytics & Reports** - overview of clinic operations
 - **Service Management** - Create and manage dental services and categories
 - **Appointment Scheduling** - Handle patient bookings and availability
 - **Patient Records** - Secure management of patient information
