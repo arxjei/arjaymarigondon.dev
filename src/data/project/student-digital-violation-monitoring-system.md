@@ -1,5 +1,5 @@
 ---
-imgUrl: "../../assets/placeholder.webp"
+imgUrl: "@assets/placeholder.webp"
 title: Student Digital Violation Monitoring System
 description:
   Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, vox

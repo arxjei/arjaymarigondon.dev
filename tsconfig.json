@@ -4,11 +4,13 @@
     "baseUrl": ".",
     "jsx": "preserve",
     "paths": {
+      "@assets/*": [ "src/assets/*" ],
       "@components/*": [ "src/components/*" ],
       "@layouts/*": [ "src/layouts/*" ],
       "@pages/*": [ "src/pages/*" ],
       "@data/*": [ "src/data/*" ],
-      "@lib/*": [ "src/lib/*" ]
+      "@lib/*": [ "src/lib/*" ],
+      "@styles/*": [ "src/styles/*" ]
     }
   }
 }
