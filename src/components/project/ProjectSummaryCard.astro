@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
+const { default: techStack } = await import("@data/misc/tech-stack.json");
 ---
 
 <div
@@ -37,7 +38,19 @@ const { project } = Astro.props;
 								<a
 									class="sanchez"
 									href={`/project/tags/${tag.toLowerCase()}/`}>
-									<CustomBrutalPill class="poppins">{tag}</CustomBrutalPill>
+									{(() => {
+										const tech = techStack.find((t) => t.id === tag);
+										return tech ? (
+											<CustomBrutalPill
+												color={tech.color}
+												class="flex justify-center items-center gap-2">
+												<i class={tech.logo} />
+												{tech.name}
+											</CustomBrutalPill>
+										) : (
+											<CustomBrutalPill class="poppins">{tag}</CustomBrutalPill>
+										);
+									})()}
 								</a>
 							</li>
 						);

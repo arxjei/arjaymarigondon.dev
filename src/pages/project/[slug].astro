@@ -20,9 +20,10 @@ const { Content } = await render(project);
 
 <Layout
 	title={project.data.title}
+	headings={project.rendered?.metadata?.headings}
 	description={project.data.description}
 	pubDate={project.data.pubDate}
 	author={project.data.author}
-	headings={project.rendered?.metadata?.headings}>
+	viewLiveDemoLink={project.data.viewLiveDemoLink}>
 	<Content />
 </Layout>

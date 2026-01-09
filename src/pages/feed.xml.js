@@ -18,6 +18,8 @@ export async function GET(context) {
 			pubDate: post.data.pubDate,
 			description: post.data.description,
 			link: `/project/${post.id}/`,
+			author: userData.name,
+			viewLiveDemoLink: post.data.viewLiveDemoLink,
 		})),
 		customData: "<language>en-us</language>",
 		canonicalUrl: "https://brutal.elian.codes",

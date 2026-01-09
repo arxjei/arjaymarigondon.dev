@@ -1,146 +1,173 @@
 [
   {
+    "id": "astro",
     "name": "Astro",
     "url": "https://astro.build/",
-    "logo": "https://astro.build/assets/astro-logo-dark.svg",
-    "color": "#FF5D01"
+    "logo": "devicon-astro-plain colored",
+    "color": "#FF5D01",
+    "note": "Verify if astro exists in devicon - may need to use image URL"
   },
   {
+    "id" : "nextjs",
     "name": "Next.js",
     "url": "https://nextjs.org/",
-    "logo": "https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_dark_background.png",
+    "logo": "devicon-nextjs-original colored",
     "color": "#000000"
   },
   {
+    "id": "react",
     "name": "React",
     "url": "https://react.dev/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    "logo": "devicon-react-original colored",
     "color": "#61DAFB"
   },
   {
+    "id": "typescript",
     "name": "TypeScript",
     "url": "https://www.typescriptlang.org/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg",
+    "logo": "devicon-typescript-plain colored",
     "color": "#3178C6"
   },
   {
+    "id": "javascript",
     "name": "JavaScript",
     "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+    "logo": "devicon-javascript-plain colored",
     "color": "#F7DF1E"
   },
   {
+    "id": "html5",
     "name": "HTML5",
     "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg",
+    "logo": "devicon-html5-plain colored",
     "color": "#E34F26"
   },
   {
+    "id": "css3",
     "name": "CSS3",
     "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg",
+    "logo": "devicon-css3-plain colored",
     "color": "#1572B6"
   },
   {
+    "id": "tailwindcss",
     "name": "Tailwind CSS",
     "url": "https://tailwindcss.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+    "logo": "devicon-tailwindcss-plain colored",
     "color": "#38BDF8"
   },
   {
+    "id": "bootstrap",
     "name": "Bootstrap",
     "url": "https://getbootstrap.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg",
+    "logo": "devicon-bootstrap-plain colored",
     "color": "#7952B3"
   },
   {
+    "id": "sass",
     "name": "Sass",
     "url": "https://sass-lang.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg",
+    "logo": "devicon-sass-original colored",
     "color": "#CC6699"
   },
   {
+    "id": "jquery",
     "name": "jQuery",
     "url": "https://jquery.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg",
+    "logo": "devicon-jquery-plain colored",
     "color": "#0769AD"
   },
   {
+    "id": "php",
     "name": "PHP",
     "url": "https://www.php.net/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg",
+    "logo": "devicon-php-plain colored",
     "color": "#777BB4"
   },
   {
+    "id": "laravel",
     "name": "Laravel",
     "url": "https://laravel.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg",
+    "logo": "devicon-laravel-plain colored",
     "color": "#FF2D20"
   },
   {
+    "id": "livewire",
     "name": "Laravel Livewire",
     "url": "https://livewire.laravel.com/",
-    "logo": "https://laravel-livewire.com/img/twitter.png",
+    "logo": "devicon-livewire-plain colored",
     "color": "#4E56A6"
   },
   {
+    "id": "filamentphp",
     "name": "FilamentPHP",
     "url": "https://filamentphp.com/",
-    "logo": "https://filamentphp.com/images/logo.svg",
+    "logo": "devicon-filamentphp-plain colored",
     "color": "#F59E0B"
   },
   {
+    "id": "wordpress",
     "name": "WordPress",
     "url": "https://wordpress.org/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/9/98/WordPress_blue_logo.svg",
+    "logo": "devicon-wordpress-plain colored",
     "color": "#21759B"
   },
   {
+    "id": "woocommerce",
     "name": "WooCommerce",
     "url": "https://woocommerce.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/2a/WooCommerce_logo.svg",
-    "color": "#96588A"
+    "logo": "devicon-woocommerce-plain colored",
+    "color": "#96588A",
+    "note": "Verify if woocommerce exists in devicon - may need to use image URL"
   },
   {
+    "id": "mysql",
     "name": "MySQL",
     "url": "https://www.mysql.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/en/d/dd/MySQL_logo.svg",
+    "logo": "devicon-mysql-plain colored",
     "color": "#4479A1"
   },
   {
+    "id": "postgresql",
     "name": "PostgreSQL",
     "url": "https://www.postgresql.org/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+    "logo": "devicon-postgresql-plain colored",
     "color": "#4169E1"
   },
   {
+    "id": "digitalocean",
     "name": "DigitalOcean",
     "url": "https://www.digitalocean.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/f/ff/DigitalOcean_logo.svg",
+    "logo": "devicon-digitalocean-original colored",
     "color": "#0080FF"
   },
   {
+    "id": "linux",
     "name": "Linux",
     "url": "https://www.linux.org/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg",
+    "logo": "devicon-linux-plain colored",
     "color": "#FCC624"
   },
   {
+    "id": "ubuntu",
     "name": "Ubuntu",
     "url": "https://ubuntu.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Ubuntu-logo-2022.svg",
+    "logo": "devicon-ubuntu-plain colored",
     "color": "#E95420"
   },
   {
+    "id": "postman",
     "name": "Postman",
     "url": "https://www.postman.com/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png",
+    "logo": "devicon-postman-plain colored",
     "color": "#FF6C37"
   },
   {
+    "id": "insomnia",
     "name": "Insomnia",
     "url": "https://insomnia.rest/",
-    "logo": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Insomnia-logo.svg",
-    "color": "#5849BE"
+    "logo": "devicon-insomnia-plain colored",
+    "color": "#5849BE",
+    "note": "Verify if insomnia exists in devicon - may need to use image URL"
   }
 ]
