@@ -33,6 +33,7 @@ jobs:
 
       - name: Build
         env:
+          SECRET_GITHUB_USERNAME: ${{ secrets.SECRET_GITHUB_USERNAME }}
           SECRET_GITHUB_TOKEN: ${{ secrets.SECRET_GITHUB_TOKEN }}
         run: pnpm run build
 
