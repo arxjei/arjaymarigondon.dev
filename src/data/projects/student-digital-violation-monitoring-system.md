@@ -16,9 +16,9 @@ pubDate: "2026-01-11T23:40:00+08:00"
 author: "Ar Jay Marigondon"
 viewLiveDemoLink: ""
 developerNotes:
-  "The work shown here includes real-world projects (with details adjusted for
-  client confidentiality) and conceptual projects created to explore specific
-  skills or ideas."
+  "The brands and logos shown are fictional and used solely to demonstrate my
+  development skills; any resemblance to real brands or entities is purely
+  coincidental."
 ---
 
 ## Overview
