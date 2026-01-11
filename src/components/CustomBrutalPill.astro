@@ -2,26 +2,14 @@
 interface Props {
 	class?: string;
 	color?: string;
+	hoverable?: boolean;
 }
 
-const { class: className, color } = Astro.props;
-
-function hexToRgb(hex: string) {
-	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	return result
-		? {
-				r: parseInt(result[1], 16),
-				g: parseInt(result[2], 16),
-				b: parseInt(result[3], 16),
-			}
-		: null;
-}
-
-const rgb = hexToRgb(color ?? "#000000");
+const { class: className, color, hoverable = true } = Astro.props;
 ---
 
 <style define:vars={{ color }}>
-	span.custom-brutal-pill {
+	.custom-brutal-pill {
 		color: black;
 		user-select: none;
 		background-color: white;
@@ -30,13 +18,15 @@ const rgb = hexToRgb(color ?? "#000000");
 		font-size: small;
 		font-family: "Poppins", serif;
 		filter: drop-shadow(3px 3px 0 black);
+		transition: filter 0.2s ease;
 	}
 
-	span.custom-brutal-pill:hover {
+	.custom-brutal-pill-hoverable:hover {
 		filter: drop-shadow(5px 5px 0 var(--color, black));
 	}
 </style>
 
-<span class={`custom-brutal-pill ${className ?? ""}`}>
+<span
+	class={`custom-brutal-pill ${hoverable ? "custom-brutal-pill-hoverable" : ""} ${className ?? ""}`}>
 	<slot />
 </span>

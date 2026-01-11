@@ -1,8 +1,5 @@
 ---
-export const prerender = true;
-
 import "devicon/devicon.min.css";
-import { github } from "@lib/github";
 import LocalFont from "@components/misc/LocalFont.astro";
 import { ViewTransitions } from "astro:transitions";
 
@@ -10,6 +7,7 @@ interface Props {
 	title: string;
 	description: string;
 	ogImage?: URL;
+	userData: any; // TODO: Add proper type from your GitHub API
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -18,8 +16,7 @@ if (Astro.props.ogImage === undefined) {
 	Astro.props.ogImage = new URL("/v1/generate/og/default.png", Astro.url);
 }
 
-const { title, description, ogImage } = Astro.props;
-const userData = await github.getUser();
+const { title, description, ogImage, userData } = Astro.props;
 ---
 
 <head>

@@ -1,15 +1,19 @@
 ---
 import CustomBrutalButton from "@components/CustomBrutalButton.astro";
 import CustomBrutalCard from "@components/CustomBrutalCard.astro";
+import CustomBrutalPill from "@components/CustomBrutalPill.astro";
+import { ExternalLink, MoveLeft, ReplyAll } from "lucide-astro";
 
 interface Props {
 	pubDate: Date;
 	author: string;
 	viewLiveDemoLink?: string;
 	developerNotes?: string;
+	tags: string[];
 }
 
-const { pubDate, author, viewLiveDemoLink, developerNotes } = Astro.props;
+const { pubDate, author, viewLiveDemoLink, developerNotes, tags } = Astro.props;
+const { default: techStack } = await import("@data/misc/tech-stack.json");
 ---
 
 <article
@@ -17,8 +21,12 @@ const { pubDate, author, viewLiveDemoLink, developerNotes } = Astro.props;
 	<div class="max-w-3xl">
 		<CustomBrutalButton
 			href={`/projects`}
-			class="mb-6 md:mb-8">
-			&larr; Back to projects
+			class="!flex items-center gap-2 mb-6 md:mb-8 w-max">
+			<MoveLeft
+				size={18}
+				strokeWidth={2.5}
+			/>
+			Back to projects
 		</CustomBrutalButton>
 
 		<div
@@ -41,7 +49,6 @@ const { pubDate, author, viewLiveDemoLink, developerNotes } = Astro.props;
 			<span>by <span class="font-medium text-gray-800">{author}</span></span>
 		</div>
 
-		<!-- developerNotes: just alert message for now -->
 		{
 			developerNotes && (
 				<CustomBrutalCard class="border-2 border-black !bg-lime-400">
@@ -55,7 +62,36 @@ const { pubDate, author, viewLiveDemoLink, developerNotes } = Astro.props;
 			<slot />
 		</div>
 
-		<!-- Action Buttons Section -->
+		<div class="flex justify-between items-center">
+			<ul class="flex flex-wrap gap-4 mt-2">
+				{
+					tags.map((tag) => {
+						return (
+							<li>
+								<a
+									class="sanchez"
+									href={`/projects/tags/${tag.toLowerCase()}/`}>
+									{(() => {
+										const tech = techStack.find((t) => t.id === tag);
+										return tech ? (
+											<CustomBrutalPill
+												color={tech.color}
+												class="flex justify-center items-center gap-2">
+												<i class={tech.logo} />
+												{tech.name}
+											</CustomBrutalPill>
+										) : (
+											<CustomBrutalPill class="poppins">{tag}</CustomBrutalPill>
+										);
+									})()}
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</div>
+
 		<div class="mt-12 pt-8 border-t-2 border-gray-200">
 			<p class="text-sm font-semibold text-gray-700 mb-4">
 				Interested in this project?
@@ -63,7 +99,11 @@ const { pubDate, author, viewLiveDemoLink, developerNotes } = Astro.props;
 			<div class="flex flex-wrap gap-4">
 				<CustomBrutalButton
 					href="/#contact-me"
-					class="bg-lime-500 hover:bg-lime-600">
+					class="!flex items-center gap-2 !bg-lime-400">
+					<ReplyAll
+						size={18}
+						strokeWidth={2.5}
+					/>
 					Contact Me
 				</CustomBrutalButton>
 				{
@@ -71,8 +111,12 @@ const { pubDate, author, viewLiveDemoLink, developerNotes } = Astro.props;
 						<CustomBrutalButton
 							href={viewLiveDemoLink}
 							target="_blank"
-							class="bg-blue-500 hover:bg-blue-600">
-							View Live Demo
+							class="!flex items-center gap-2 !bg-lime-400">
+							Live Demo
+							<ExternalLink
+								size={18}
+								strokeWidth={2.5}
+							/>
 						</CustomBrutalButton>
 					)
 				}

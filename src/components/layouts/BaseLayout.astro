@@ -10,9 +10,11 @@ interface Props {
 	classList?: string;
 	pageTitle?: string;
 	ogImage?: URL;
+	userData?: any;
 }
 
-const { title, description, classList, pageTitle, ogImage } = Astro.props;
+const { title, description, classList, pageTitle, ogImage, userData } =
+	Astro.props;
 ---
 
 <html
@@ -22,10 +24,14 @@ const { title, description, classList, pageTitle, ogImage } = Astro.props;
 		ogImage={ogImage}
 		title={title}
 		description={description}
+		userData={userData}
 	/>
 
 	<body class:list={[classList]}>
-		<BaseNavigation {pageTitle} />
+		<BaseNavigation
+			userData={userData}
+			pageTitle={pageTitle}
+		/>
 		<slot />
 		<BaseFooter />
 	</body>

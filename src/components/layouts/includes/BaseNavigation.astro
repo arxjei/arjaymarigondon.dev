@@ -1,8 +1,6 @@
 ---
-export const prerender = true;
-import { github } from "@lib/github";
-
 interface Props {
+	userData?: any;
 	pageTitle?: string;
 }
 
@@ -10,9 +8,8 @@ const navigationItems = [
 	{ name: "Home", url: "/" },
 	{ name: "Projects", url: "/projects/" },
 ];
-const userData = await github.getUser();
 
-const { pageTitle } = Astro.props;
+const { userData, pageTitle } = Astro.props;
 ---
 
 <header class="border-b-4 border-black flex justify-between">

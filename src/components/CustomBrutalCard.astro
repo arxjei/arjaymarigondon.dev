@@ -1,10 +1,13 @@
 ---
 interface Props {
 	class?: string;
+	classBody?: string;
 	color?: string;
 }
 
-const { class: className, color } = Astro.props;
+const { class: className, classBody, color } = Astro.props;
+const hasHeader = Astro.slots.has("header");
+const hasFooter = Astro.slots.has("footer");
 ---
 
 <style
@@ -12,9 +15,9 @@ const { class: className, color } = Astro.props;
 		color: color,
 	}}
 >
-	div.custom-brutal-card {
+	.custom-brutal-card {
 		margin: var(--margin, 0);
-		padding: var(--padding, 1.5rem);
+		padding: 0;
 		height: var(--height, 100%);
 		position: relative;
 		background-color: var(--color, white);
@@ -23,9 +26,46 @@ const { class: className, color } = Astro.props;
 		transition: all 0.2s ease-in-out;
 		font-family: "Poppins", serif;
 		filter: drop-shadow(5px 5px 0 black);
+		display: flex;
+		flex-direction: column;
+	}
+
+	.custom-brutal-card-header {
+		padding: 1rem 1.5rem;
+		background-color: rgba(0, 0, 0, 0.03);
+		border-bottom: 2px solid black;
+	}
+
+	.custom-brutal-card-body {
+		padding: 1rem 1.5rem;
+		flex: 1;
+	}
+
+	.custom-brutal-card-footer {
+		padding: 1rem 1.5rem;
+		border-top: 2px solid black;
+		margin-top: auto;
 	}
 </style>
 
 <div class={`custom-brutal-card ${className || ""}`}>
-	<slot />
+	{
+		hasHeader && (
+			<div class="custom-brutal-card-header">
+				<slot name="header" />
+			</div>
+		)
+	}
+
+	<div class={`custom-brutal-card-body ${classBody || ""}`}>
+		<slot />
+	</div>
+
+	{
+		hasFooter && (
+			<div class="custom-brutal-card-footer">
+				<slot name="footer" />
+			</div>
+		)
+	}
 </div>

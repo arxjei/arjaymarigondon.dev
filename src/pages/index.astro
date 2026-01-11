@@ -4,91 +4,30 @@ export const prerender = true;
 import { github } from "@lib/github";
 import BaseLayout from "@components/layouts/BaseLayout.astro";
 import RecentProjectPost from "@pages/includes/RecentProjectPost.astro";
-import CustomBrutalCard from "@components/CustomBrutalCard.astro";
-import CustomBrutalPill from "@components/CustomBrutalPill.astro";
-import CustomBrutalButton from "@components/CustomBrutalButton.astro";
 import ContactMe from "@pages/includes/ContactMe.astro";
+import AboutMe from "@pages/includes/AboutMe.astro";
 
 const userData = await github.getUser();
 const userDataSocialMedia = await github.getUserSocialMedia();
+const { default: techStack } = await import("@data/misc/tech-stack.json");
 ---
 
 <BaseLayout
 	title="Home"
-	pageTitle=`${userData.name} - Home`
-	description=`Welcome to ${userData.name}'s personal website. Explore projects.`>
+	pageTitle=`Home`
+	description=`Welcome Explore projects.`
+	userData={userData}>
 	<main>
-		<section
-			id="about"
-			class="grid grid-cols-8 gap-0">
-			<div
-				class="col-span-8 md:col-span-3 lg:col-span-2 order-first md:order-last overflow-hidden">
-				<CustomBrutalCard
-					class="border-b-2 md:border-l-2 border-black h-full !p-0 !drop-shadow-none">
-					<img
-						src={userData.avatar_url}
-						alt={userData.name}
-						class="h-full w-full object-cover hover:invert"
-					/>
-				</CustomBrutalCard>
-			</div>
-			<div class="col-span-8 md:col-span-5 lg:col-span-6">
-				<div class="grid grid-rows-[2fr_1fr] h-full">
-					<CustomBrutalCard
-						class="border-b-2 border-r-2 border-black !bg-lime-400 !drop-shadow-none">
-						<div class="flex flex-col justify-between items-start">
-							<p class="outfit text-5xl md:text-5xl lg:text-7xl font-bold">
-								I'm {userData.name}
-							</p>
-							<p class="mt-5 outfit text-2xl md:text-3xl lg:text-5xl">
-								{userData.bio}
-							</p>
-						</div>
-						<div class="flex flex-wrap gap-2 mt-8">
-							<CustomBrutalPill>
-								{userData.followers} Followers
-							</CustomBrutalPill>
-							<CustomBrutalPill>
-								{userData.following} Following
-							</CustomBrutalPill>
-							<CustomBrutalPill>
-								{userData.public_repos} Public Repositories
-							</CustomBrutalPill>
-						</div>
-						<p class="mt-5 outfit text-xl md:text-2xl lg:text-4xl">
-							You can find me on ...
-						</p>
-						<div class="flex flex-wrap gap-2 mt-4">
-							<CustomBrutalButton
-								href={userData.html_url}
-								target="_blank">
-								Github
-							</CustomBrutalButton>
-							{
-								userDataSocialMedia?.map((socialMedia: any) => (
-									<CustomBrutalButton
-										href={socialMedia.url}
-										class="capitalize"
-										target="_blank">
-										{socialMedia.provider}
-									</CustomBrutalButton>
-								))
-							}
-						</div>
-					</CustomBrutalCard>
-					<CustomBrutalCard
-						class="border-b-2 border-r-2 border-t-2 border-black !bg-black text-white !drop-shadow-none">
-						<p class="outfit text-2xl md:text-3xl lg:text-5xl">
-							aside from coding, I enjoy video creation, exploring new
-							technologies, and engaging in outdoor activities.🏃
-						</p>
-					</CustomBrutalCard>
-				</div>
-			</div>
-		</section>
+		<AboutMe
+			userData={userData}
+			userDataSocialMedia={userDataSocialMedia}
+		/>
 
 		<RecentProjectPost />
 
-		<ContactMe />
+		<ContactMe
+			userData={userData}
+			techStack={techStack}
+		/>
 	</main>
 </BaseLayout>

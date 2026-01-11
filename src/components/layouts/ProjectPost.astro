@@ -1,4 +1,7 @@
 ---
+export const prerender = true;
+
+import { github } from "@lib/github";
 import BaseLayout from "@components/layouts/BaseLayout.astro";
 import ProjectSideBar from "@components/projects/ProjectSideBar.astro";
 import ProjectContent from "@components/projects/ProjectContent.astro";
@@ -14,6 +17,7 @@ interface Props {
 	author: string;
 	viewLiveDemoLink: string | undefined;
 	developerNotes: string | undefined;
+	tags: string[];
 }
 
 const {
@@ -24,13 +28,17 @@ const {
 	title,
 	viewLiveDemoLink,
 	developerNotes,
+	tags,
 } = Astro.props;
+
+const userData = await github.getUser();
 ---
 
 <BaseLayout
 	title={title}
 	description={description}
-	ogImage={ogImage}>
+	ogImage={ogImage}
+	userData={userData}>
 	<main
 		class="lg:grid lg:grid-cols-5 min-h-screen bg-gradient-to-b from-white to-gray-50">
 		<ProjectSideBar headings={headings as any[]} />
@@ -38,7 +46,8 @@ const {
 			{pubDate}
 			{author}
 			{viewLiveDemoLink}
-			{developerNotes}>
+			{developerNotes}
+			{tags}>
 			<slot />
 		</ProjectContent>
 	</main>

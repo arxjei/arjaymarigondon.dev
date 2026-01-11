@@ -1,15 +1,12 @@
 ---
-export const prerender = true;
-
-import { github } from "@lib/github";
-const userData = await github.getUser();
+// get site
 ---
 
 <footer class="text-white p-6 border-t-2 border-black bg-black text-white">
 	<div class="max-w-7xl mx-auto text-center">
 		<p class="text-lg font-medium poppins">
 			&copy; {new Date().getFullYear()}
-			{userData.name}. All rights reserved.
+			Arjay Marigondon. All rights reserved.
 		</p>
 	</div>
 </footer>

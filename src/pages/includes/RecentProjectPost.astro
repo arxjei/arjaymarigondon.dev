@@ -1,7 +1,7 @@
 ---
-import { getCollection } from "astro:content";
+import { getRecentProjects } from "@lib/projects";
+
 import ProjectList from "@components/projects/ProjectList.astro";
-import { Card, Button, Pill } from "@eliancodes/brutal-ui";
 import CustomBrutalCard from "@components/CustomBrutalCard.astro";
 import CustomBrutalButton from "@components/CustomBrutalButton.astro";
 
@@ -11,9 +11,7 @@ interface Props {
 
 const { count } = Astro.props;
 
-const projects = await getCollection("projects").then((projects) =>
-	projects.reverse().slice(0, count ?? 4)
-);
+const projects = await getRecentProjects(count ?? 4);
 ---
 
 <section id="recent-projects">

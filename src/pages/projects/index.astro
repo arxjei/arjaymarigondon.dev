@@ -1,4 +1,7 @@
 ---
+export const prerender = true;
+
+import { github } from "@lib/github";
 import { getCollection } from "astro:content";
 import BaseLayout from "@components/layouts/BaseLayout.astro";
 import ProjectList from "@components/projects/ProjectList.astro";
@@ -6,12 +9,15 @@ import ProjectList from "@components/projects/ProjectList.astro";
 const projects = await getCollection("projects").then((collection) =>
 	collection.reverse()
 );
+
+const userData = await github.getUser();
 ---
 
 <BaseLayout
 	title="Projects"
 	description="Project | On this page you can find a collection of projects"
-	pageTitle="Project">
+	pageTitle="Project"
+	userData={userData}>
 	<main class="bg-lime-400 p-6">
 		<div class="flex column justify-between items-start">
 			<h2 class="text-2xl md:text-4xl lg:text-6xl mb-8 poppins font-bold">
