@@ -104,11 +104,13 @@ const userData = await github.getUser();
 			position: fixed;
 			top: 0;
 			left: 0;
-			height: 1px;
+			height: 4px;
 			background: oklch(84.1% 0.238 128.85);
-			width: 0%;
+			width: 80%;
 			transition: width 0.3s ease;
 			z-index: 9999;
+			pointer-events: none;
+			user-select: none;
 		}
 	</style>
 
@@ -120,9 +122,8 @@ const userData = await github.getUser();
 			progress.id = "brutal-progress";
 			document.body.appendChild(progress);
 
-			// progress animation
 			setTimeout(() => (progress!.style.width = "30%"), 50);
-			setTimeout(() => (progress!.style.width = "90%"), 200);
+			setTimeout(() => (progress!.style.width = "90%"), 300);
 		});
 
 		document.addEventListener("astro:page-load", () => {
