@@ -2,8 +2,8 @@
 import { getRecentProjects } from "@lib/projects";
 
 import ProjectList from "@components/projects/ProjectList.astro";
-import CustomBrutalCard from "@components/CustomBrutalCard.astro";
-import CustomBrutalButton from "@components/CustomBrutalButton.astro";
+import BrutalCard from "@components/BrutalCard.astro";
+import BrutalButton from "@components/BrutalButton.astro";
 
 interface Props {
 	count?: number;
@@ -11,21 +11,20 @@ interface Props {
 
 const { count } = Astro.props;
 
-const projects = await getRecentProjects(count ?? 3);
+const projects = await getRecentProjects(count ?? 4);
 ---
 
 <section id="recent-projects">
-	<CustomBrutalCard
-		class="border-t-2 border-b-2 border-black !bg-lime-400 !drop-shadow-none">
-		<div class="flex justify-between items-center mb-5">
-			<h1 class="righteous text-6xl mb-2">Projects</h1>
+	<BrutalCard class="!bg-lime-400 !drop-shadow-none !py-4 !px-6">
+		<div class="flex justify-between items-centermb-5">
+			<h1 class="text-6xl mb-2">Projects</h1>
 			<div class="hidden md:block">
-				<CustomBrutalButton href="/projects/">More Projects</CustomBrutalButton>
+				<BrutalButton href="/projects/">More Projects</BrutalButton>
 			</div>
 			<div class="block md:hidden">
-				<CustomBrutalButton href="/projects/">More Projects</CustomBrutalButton>
+				<BrutalButton href="/projects/">More</BrutalButton>
 			</div>
 		</div>
 		<ProjectList projects={projects} />
-	</CustomBrutalCard>
+	</BrutalCard>
 </section>

@@ -1,9 +1,9 @@
 ---
 import type { GitHubUser } from "@lib/github";
 
-import CustomBrutalButton from "@components/CustomBrutalButton.astro";
-import CustomBrutalCard from "@components/CustomBrutalCard.astro";
-import CustomBrutalPill from "@components/CustomBrutalPill.astro";
+import BrutalButton from "@components/BrutalButton.astro";
+import BrutalCard from "@components/BrutalCard.astro";
+import BrutalPill from "@components/BrutalPill.astro";
 import { Image } from "astro:assets";
 
 interface Props {
@@ -16,72 +16,76 @@ const { userData, userDataSocialMedia } = Astro.props;
 
 <section
 	id="about"
-	class="grid grid-cols-8 gap-0">
-	<div
-		class="col-span-8 md:col-span-3 lg:col-span-2 order-first md:order-last overflow-hidden">
-		<CustomBrutalCard
-			class="border-b-2 md:border-l-2 border-black h-full !drop-shadow-none"
-			classBody="!p-0">
-			<Image
-				src={userData.avatar_url}
-				alt={userData.name}
-				class="h-full w-full object-cover"
-				width={400}
-				height={400}
-			/>
-		</CustomBrutalCard>
-	</div>
-	<div class="col-span-8 md:col-span-5 lg:col-span-6">
-		<div class="grid grid-rows-[2fr_1fr] h-full">
-			<CustomBrutalCard
-				class="border-b-2 border-r-2 border-black !bg-lime-400 !drop-shadow-none">
-				<div class="flex flex-col justify-between items-start">
-					<p class="outfit text-5xl md:text-5xl lg:text-7xl font-bold">
-						I'm {userData.name}
-					</p>
-					<p class="mt-5 outfit text-2xl md:text-3xl lg:text-5xl">
-						{userData.bio}
-					</p>
-				</div>
-				<div class="flex flex-wrap gap-2 mt-3">
-					<CustomBrutalPill hoverable={false}>
+	class="grid grid-cols-12">
+	<div class="col-span-12">
+		<BrutalCard
+			class="!bg-lime-400 !drop-shadow-none !py-4 !px-6 h-full relative overflow-hidden">
+			<div class="flex flex-col justify-between items-start relative z-10">
+				<p class="outfit text-4xl md:text-5xl lg:text-7xl font-bold">
+					I'm {userData.name}
+				</p>
+				<p class="mt-5 outfit text-xl md:text-2xl lg:text-4xl max-w-2xl">
+					{userData.bio}
+				</p>
+				<div class="flex flex-wrap gap-2 mt-4 relative z-10">
+					<BrutalPill hoverable={false}>
 						{userData.followers} Followers
-					</CustomBrutalPill>
-					<CustomBrutalPill hoverable={false}>
+					</BrutalPill>
+					<BrutalPill hoverable={false}>
 						{userData.following} Following
-					</CustomBrutalPill>
-					<CustomBrutalPill hoverable={false}>
+					</BrutalPill>
+					<BrutalPill hoverable={false}>
 						{userData.public_repos} Public Repositories
-					</CustomBrutalPill>
+					</BrutalPill>
 				</div>
-				<p class="mt-7 outfit text-xl md:text-2xl lg:text-4xl">
+
+				<p class="mt-5 outfit text-lg md:text-xl lg:text-3xl max-w-2xl">
 					You can find me on ...
 				</p>
-				<div class="flex flex-wrap gap-2 mt-3">
-					<CustomBrutalButton
+				<div class="flex flex-wrap gap-2 mt-4 relative z-10">
+					<BrutalButton
 						href={userData.html_url}
 						target="_blank">
 						Github
-					</CustomBrutalButton>
+					</BrutalButton>
 					{
 						userDataSocialMedia?.map((socialMedia: any) => (
-							<CustomBrutalButton
+							<BrutalButton
 								href={socialMedia.url}
 								class="capitalize"
 								target="_blank">
 								{socialMedia.provider}
-							</CustomBrutalButton>
+							</BrutalButton>
 						))
 					}
 				</div>
-			</CustomBrutalCard>
-			<CustomBrutalCard
-				class="border-b-2 border-r-2 border-t-2 border-black !bg-black text-white !drop-shadow-none">
-				<p class="outfit text-2xl md:text-3xl lg:text-5xl">
-					aside from coding, I enjoy video creation, exploring new technologies,
-					and engaging in outdoor activities.🏃
-				</p>
-			</CustomBrutalCard>
-		</div>
+			</div>
+
+			<div></div>
+
+			<div class="absolute top-0 right-0 w-1/2 h-full">
+				<div class="relative w-full h-full">
+					<Image
+						src={userData.avatar_url}
+						alt={userData.name}
+						class="h-full w-full object-cover"
+						width={400}
+						height={400}
+					/>
+					<div
+						class="absolute inset-0 bg-gradient-to-r from-lime-400 via-lime-400/50 to-transparent">
+					</div>
+				</div>
+			</div>
+		</BrutalCard>
+	</div>
+	<div class="col-span-12">
+		<BrutalCard
+			class="!bg-black text-white !drop-shadow-none !py-4 !px-6 h-full flex items-center">
+			<p class="outfit text-xl md:text-2xl lg:text-3xl leading-relaxed">
+				Aside from coding, I enjoy video creation, exploring new technologies,
+				and engaging in outdoor activities. 🏃
+			</p>
+		</BrutalCard>
 	</div>
 </section>

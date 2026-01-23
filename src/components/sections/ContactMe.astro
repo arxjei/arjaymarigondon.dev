@@ -1,7 +1,7 @@
 ---
 import type { GitHubUser } from "@lib/github";
-import CustomBrutalCard from "@components/CustomBrutalCard.astro";
-import CustomBrutalPill from "@components/CustomBrutalPill.astro";
+import BrutalCard from "@components/BrutalCard.astro";
+import BrutalPill from "@components/BrutalPill.astro";
 
 interface Props {
 	userData: GitHubUser;
@@ -14,8 +14,8 @@ const { userData, techStack } = Astro.props;
 <section
 	id="contact-me"
 	class="grid grid-cols-1">
-	<CustomBrutalCard
-		class="md:col-span-2 border-t-2 border-b-2 border-black !bg-black text-white !drop-shadow-none">
+	<BrutalCard
+		class="md:col-span-2 !bg-black text-white !drop-shadow-none !py-4 !px-6">
 		<h1 class="text-5xl md:text-5xl lg:text-6xl font-bold mb-4">
 			Let's Work Together ❤️
 		</h1>
@@ -33,10 +33,9 @@ const { userData, techStack } = Astro.props;
 				{userData.email ? userData.email : "hey@arjaymarigondon.dev"}
 			</a>
 		</p>
-	</CustomBrutalCard>
+	</BrutalCard>
 
-	<CustomBrutalCard
-		class="border-t-2 border-b-2 sm:border-l-2 border-black !bg-lime-400 !drop-shadow-none">
+	<BrutalCard class="!bg-lime-400 !drop-shadow-none !py-4 !px-6">
 		<h1 class="text-5xl md:text-5xl lg:text-6xl font-bold mb-2">
 			Technologies I Use
 		</h1>
@@ -46,14 +45,14 @@ const { userData, techStack } = Astro.props;
 		<div class="flex flex-wrap gap-2">
 			{
 				techStack.map((tech: any) => (
-					<CustomBrutalPill
+					<BrutalPill
 						color={tech.color}
 						class="flex justify-center items-center gap-2">
 						<i class={tech.logo} />
 						{tech.name}
-					</CustomBrutalPill>
+					</BrutalPill>
 				))
 			}
 		</div>
-	</CustomBrutalCard>
+	</BrutalCard>
 </section>

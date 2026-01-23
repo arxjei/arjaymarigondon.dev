@@ -1,12 +1,11 @@
 ---
 interface Props {
 	class?: string;
-	classBody?: string;
 	color?: string;
 	hoverable?: boolean;
 }
 
-const { class: className, classBody, color, hoverable = false } = Astro.props;
+const { class: className, color, hoverable = false } = Astro.props;
 const hasHeader = Astro.slots.has("header");
 const hasFooter = Astro.slots.has("footer");
 ---
@@ -16,7 +15,7 @@ const hasFooter = Astro.slots.has("footer");
 		color: color,
 	}}
 >
-	.custom-brutal-card {
+	.brutal-card {
 		margin: var(--margin, 0);
 		padding: 0;
 		height: var(--height, 100%);
@@ -31,7 +30,7 @@ const hasFooter = Astro.slots.has("footer");
 		flex-direction: column;
 	}
 
-	.custom-brutal-card-header {
+	.brutal-card-header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -41,12 +40,7 @@ const hasFooter = Astro.slots.has("footer");
 		border-bottom: 2px solid black;
 	}
 
-	.custom-brutal-card-body {
-		padding: 1rem 1.5rem;
-		flex: 1;
-	}
-
-	.custom-brutal-card-footer {
+	.brutal-card-footer {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -56,28 +50,29 @@ const hasFooter = Astro.slots.has("footer");
 		margin-top: auto;
 	}
 
-	.custom-brutal-card-hoverable:hover {
+	.brutal-card-hoverable:hover {
 		filter: drop-shadow(5px 5px 0 black);
 	}
 </style>
 
 <div
-	class={`custom-brutal-card ${className || ""} ${hoverable ? "custom-brutal-card-hoverable" : ""}`}>
+	class={`brutal-card ${className || ""} ${hoverable ? "brutal-card-hoverable" : ""}`}>
+	<!-- Header -->
 	{
 		hasHeader && (
-			<div class="custom-brutal-card-header">
+			<div class="brutal-card-header">
 				<slot name="header" />
 			</div>
 		)
 	}
 
-	<div class={`custom-brutal-card-body ${classBody || ""}`}>
-		<slot />
-	</div>
+	<!-- Content -->
+	<slot />
 
+	<!-- Footer -->
 	{
 		hasFooter && (
-			<div class="custom-brutal-card-footer">
+			<div class="brutal-card-footer">
 				<slot name="footer" />
 			</div>
 		)

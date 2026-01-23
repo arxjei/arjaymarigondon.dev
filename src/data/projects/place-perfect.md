@@ -19,8 +19,11 @@ tags:
 pubDate: "2026-01-14T03:20:00+08:00"
 author: "Ar Jay Marigondon"
 viewLiveDemoLink: ""
-developerNotes: "This project is in draft - content and details may change."
-draft: true
+developerNotes:
+  "The brands and logos shown are fictional and used solely to demonstrate my
+  development skills; any resemblance to real brands or entities is purely
+  coincidental."
+draft: false
 ---
 
 ## Overview

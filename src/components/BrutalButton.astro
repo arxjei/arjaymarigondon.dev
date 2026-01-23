@@ -10,7 +10,7 @@ const { class: className, color, ...rest } = Astro.props;
 ---
 
 <style define:vars={{ color: color }}>
-	a.custom-brutal-btn {
+	a.brutal-btn {
 		color: black;
 		background-color: white;
 		display: inline-block;
@@ -19,13 +19,13 @@ const { class: className, color, ...rest } = Astro.props;
 		font-family: "Poppins", serif;
 		filter: drop-shadow(3px 3px 0 black);
 	}
-	a.custom-brutal-btn:hover {
+	a.brutal-btn:hover {
 		filter: drop-shadow(5px 5px 0 black);
 	}
 </style>
 
 <a
 	{...rest}
-	class={`custom-brutal-btn ${className || ""}`}>
+	class={`brutal-btn ${className || ""}`}>
 	<slot />
 </a>

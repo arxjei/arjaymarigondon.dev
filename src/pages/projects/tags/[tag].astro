@@ -6,7 +6,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "@components/layouts/BaseLayout.astro";
 import ProjectList from "@components/projects/ProjectList.astro";
-import CustomBrutalButton from "@components/CustomBrutalButton.astro";
+import BrutalButton from "@components/BrutalButton.astro";
 
 export async function getStaticPaths() {
 	const allPosts = await getCollection("projects").then((collection) =>
@@ -54,14 +54,10 @@ const userData = await github.getUser();
 				Tagged with: {tag}
 			</h2>
 			<div class="hidden md:block">
-				<CustomBrutalButton href="/projects/">
-					&larr; Back to Projects
-				</CustomBrutalButton>
+				<BrutalButton href="/projects/">&larr; Back to Projects</BrutalButton>
 			</div>
 			<div class="block md:hidden">
-				<CustomBrutalButton href="/projects/">
-					&larr; Back to Projects
-				</CustomBrutalButton>
+				<BrutalButton href="/projects/">&larr; Back to Projects</BrutalButton>
 			</div>
 		</div>
 		<ProjectList projects={projects} />

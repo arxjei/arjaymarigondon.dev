@@ -10,7 +10,7 @@ const { class: className, color, hoverable = true, tooltip } = Astro.props;
 ---
 
 <style define:vars={{ color }}>
-	.custom-brutal-pill {
+	.brutal-pill {
 		color: black;
 		user-select: none;
 		background-color: white;
@@ -22,13 +22,13 @@ const { class: className, color, hoverable = true, tooltip } = Astro.props;
 		transition: filter 0.2s ease;
 	}
 
-	.custom-brutal-pill-hoverable:hover {
+	.brutal-pill-hoverable:hover {
 		filter: drop-shadow(5px 5px 0 var(--color, black));
 	}
 </style>
 
 <span
 	title={tooltip}
-	class={`custom-brutal-pill ${hoverable ? "custom-brutal-pill-hoverable" : ""} ${className ?? ""}`}>
+	class={`brutal-pill ${hoverable ? "brutal-pill-hoverable" : ""} ${className ?? ""}`}>
 	<slot />
 </span>
