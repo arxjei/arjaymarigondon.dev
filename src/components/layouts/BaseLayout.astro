@@ -1,10 +1,8 @@
 ---
 import type { GitHubUser } from "@lib/github";
-import BaseNavigation from "@components/layouts/includes/BaseNavigation.astro";
-import BaseFooter from "@components/layouts/includes/BaseFooter.astro";
-import BaseHead from "@components/layouts/includes/BaseHead.astro";
-import "@styles/global.css";
-import ParticlesBackground from "@components/layouts/includes/ParticlesBackground.astro";
+import "@assets/styles/global.css";
+import "@assets/styles/progressbar.css";
+import BaseHead from "./includes/BaseHead.astro";
 
 interface Props {
 	title: string;
@@ -28,16 +26,17 @@ const { title, description, classList, pageTitle, ogImage, userData } =
 		description={description}
 	/>
 
-	<body class:list={classList}>
-		<ParticlesBackground />
+	<body
+		id="my-background"
+		class:list={classList}>
 		<div
-			class="max-w-6xl mx-auto 2xl:border-l-2 w-6xl:border-r-2 w-6xl:border-black">
-			<BaseNavigation
-				userData={userData}
-				pageTitle={pageTitle}
-			/>
+			class="bg-zinc-950 text-zinc-100 min-h-screen flex items-center justify-center px-6 py-20">
 			<slot />
-			<BaseFooter userData={userData} />
 		</div>
+
+		<script>
+			import { initProgressBar } from "@assets/js/progressbar.js";
+			initProgressBar();
+		</script>
 	</body>
 </html>

@@ -1,0 +1,12 @@
+#progressbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 2px;
+	background: oklch(78.506% 0.1606 86.294);
+	width: 80%;
+	transition: width 0.3s ease;
+	z-index: 9999;
+	pointer-events: none;
+	user-select: none;
+}
