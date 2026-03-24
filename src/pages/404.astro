@@ -2,7 +2,6 @@
 export const prerender = true;
 
 import { github } from "@lib/github";
-import RecentProjectPost from "@components/sections/RecentProjectPost.astro";
 import BaseLayout from "@components/layouts/BaseLayout.astro";
 import ErrorPage from "@components/errors/404.astro";
 
@@ -17,6 +16,5 @@ const userData = await github.getUser();
 	userData={userData}>
 	<main>
 		<ErrorPage />
-		<RecentProjectPost />
 	</main>
 </BaseLayout>

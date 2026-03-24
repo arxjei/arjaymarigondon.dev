@@ -3,13 +3,8 @@ export const prerender = true;
 
 import { github } from "@lib/github";
 import BaseLayout from "@components/layouts/BaseLayout.astro";
-import AboutMe from "@components/sections/AboutMe.astro";
-import ContactMe from "@components/sections/ContactMe.astro";
-import RecentProjectPost from "@components/sections/RecentProjectPost.astro";
 
 const userData = await github.getUser();
-const userDataSocialMedia = await github.getUserSocialMedia();
-const { default: techStack } = await import("@data/misc/tech-stack.json");
 ---
 
 <BaseLayout
@@ -17,17 +12,28 @@ const { default: techStack } = await import("@data/misc/tech-stack.json");
 	pageTitle=`Home`
 	description=`Welcome Explore projects.`
 	userData={userData}>
-	<main>
-		<AboutMe
-			userData={userData}
-			userDataSocialMedia={userDataSocialMedia}
+	<main class="max-w-xl w-full space-y-6">
+		<img
+			src={userData.avatar_url}
+			alt="Profile Picture"
+			class="w-32 h-32 rounded-full border-4 border-yellow-400"
 		/>
-
-		<RecentProjectPost />
-
-		<ContactMe
-			userData={userData}
-			techStack={techStack}
-		/>
+		<p class="text-zinc-500 text-xs tracking-widest uppercase">
+			its a pleasure to meet you!
+		</p>
+		<h1 class="text-5xl text-white leading-tight">
+			Hi there! <span class="text-yellow-400">⚡</span><br />
+			I'm Jei.
+		</h1>
+		<h2 class="text-2xl text-zinc-400 italic">
+			Used to build web apps. Now I build content.
+		</h2>
+		<p class="text-zinc-500 text-sm leading-relaxed">
+			Programming? is still a beloved hobby - just no longer the main act.
+			If you want to get in touch, you can email me at
+			<a href="mailto:hey@arjaymarigondon.dev" class="text-yellow-400 hover:underline">
+			hey@arjaymarigondon.dev
+			</a>
+		</p>
 	</main>
 </BaseLayout>
