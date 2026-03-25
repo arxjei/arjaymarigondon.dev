@@ -1,0 +1,11 @@
+---
+const { href, icon: Icon = null, text, ...props } = Astro.props;
+---
+
+<a
+	href={href}
+	class="inline-flex items-center gap-1.5 text-sm font-medium text-rose-400 hover:text-rose-300 transition-colors duration-200 group"
+	{...props}>
+	{Icon && <Icon class="size-4 shrink-0" />}
+	<span class="group-hover:underline">{text}</span>
+</a>

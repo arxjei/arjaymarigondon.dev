@@ -3,8 +3,12 @@ export const prerender = true;
 
 import { github } from "@lib/github";
 import BaseLayout from "@components/layouts/BaseLayout.astro";
+import { Github } from "lucide-astro";
+import Link from "@components/Link.astro";
 
 const userData = await github.getUser();
+
+console.log(userData);
 ---
 
 <BaseLayout
@@ -12,28 +16,49 @@ const userData = await github.getUser();
 	pageTitle=`Home`
 	description=`Welcome Explore projects.`
 	userData={userData}>
-	<main class="max-w-xl w-full space-y-6">
-		<img
-			src={userData.avatar_url}
-			alt="Profile Picture"
-			class="w-32 h-32 rounded-full border-4 border-yellow-400"
-		/>
-		<p class="text-zinc-500 text-xs tracking-widest uppercase">
-			its a pleasure to meet you!
+	<main class="max-w-lg w-full space-y-5">
+		<div class="relative w-16 h-16 overflow-visible">
+			<img
+				src={userData.avatar_url}
+				alt="Profile Picture"
+				class="w-16 h-16 rounded-full object-cover ring-2 ring-zinc-800 shadow-lg shadow-black/40"
+			/>
+			<span
+				class="absolute -bottom-3 left-0 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zinc-800 border border-zinc-700/50 text-zinc-400 text-xs whitespace-nowrap">
+				<span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+				{userData.owned_private_repos} Repositories
+			</span>
+		</div>
+
+		<div class="space-y-2">
+			<p class="text-zinc-600 text-xs tracking-widest uppercase">
+				its a pleasure to meet you!
+			</p>
+			<h1 class="text-4xl font-bold text-white leading-snug">
+				Hi, I'm <span class="text-rose-400 capitalize">{userData.login}</span> ⚡
+			</h1>
+			<h2 class="text-lg text-zinc-400 italic">
+				Used to build web apps. Now I build content.
+			</h2>
+		</div>
+		<div class="border-t border-zinc-700/50"></div>
+		<p class="text-zinc-500 text-sm leading-relaxed max-w-sm">
+			Programming is still a beloved hobby - just no longer the main act. Get in
+			touch at{" "}
+			<Link
+				href={`mailto:${userData.email}`}
+				text={userData.email}
+			/>
 		</p>
-		<h1 class="text-5xl text-white leading-tight">
-			Hi there! <span class="text-yellow-400">⚡</span><br />
-			I'm Jei.
-		</h1>
-		<h2 class="text-2xl text-zinc-400 italic">
-			Used to build web apps. Now I build content.
-		</h2>
-		<p class="text-zinc-500 text-sm leading-relaxed">
-			Programming? is still a beloved hobby - just no longer the main act.
-			If you want to get in touch, you can email me at
-			<a href="mailto:hey@arjaymarigondon.dev" class="text-yellow-400 hover:underline">
-			hey@arjaymarigondon.dev
-			</a>
-		</p>
+
+		<div class="flex gap-4 pt-1">
+			<Link
+				href={userData.html_url}
+				text="GitHub"
+				icon={Github}
+				target="_blank"
+				rel="noopener noreferrer"
+			/>
+		</div>
 	</main>
 </BaseLayout>
